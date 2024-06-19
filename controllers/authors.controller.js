@@ -1,7 +1,7 @@
 const authors = require('../models/authors.model'); // Importar el modelo de la BBDD
 
 // GET http://localhost:3000/api/authors?API_KEY=123abc --> ALL
-// GET http://localhost:3000/api/authors?email=hola@gmail.com --> por email
+// GET http://localhost:3000/api/authors?API_KEY=123abc&email=hola@gmail.com --> por email
 const getAuthors = async (req, res) => {
     let authorsData;
     try {
