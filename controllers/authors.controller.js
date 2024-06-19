@@ -41,7 +41,7 @@ const getAuthorsByEmail = async (req, res) => {
  */
 // Crear entry por email
 const createAuthors = async (req, res) => {
-    const newAuthors = req.body; // {title,content,email,category}
+    const newAuthors = req.body; // {title,content,email,image}
     if (
         "name" in newAuthors &&
         "surname" in newAuthors &&
@@ -78,10 +78,11 @@ const updateAuthors = async (req, res) => {
         "name" in modifiedAuthors &&
         "surname" in modifiedAuthors &&
         "email" in modifiedAuthors &&
+        "image" in modifiedAuthors &&
         "old_email" in modifiedAuthors 
     ) {
         try {
-            const response = await entry.updateAuthors(modifiedAuthors);
+            const response = await authors.updateAuthors(modifiedAuthors);
             res.status(201).json({
                 items_updated: response,
                 data: modifiedAuthors,

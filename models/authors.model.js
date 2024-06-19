@@ -37,8 +37,9 @@ const getAuthorsByEmail = async (email) => {
     return result
 }
 
-const createAuthors = async (entry) => {
-    const { name, surname, email, image } = entry;
+const createAuthors = async (authors) => {
+    console.log(authors);
+    const { name, surname, email, image } = authors;
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
@@ -138,13 +139,14 @@ const updatedEntry = {
     old_title:"Estamos de Lunes de Back"
 }
  */
+/* 
 
-
-/* const author = {
+const author = {
         "name": "pachu",
         "surname": "lee",
-        "email": "bolitas@thebridgeschool.es",
-        "old_email": "steph@thebridgeschool.es"
+        "email": "steph@thebridgeschool.es",
+        "image": "esta image",
+        "old_email": "bolitas@thebridgeschool.es"
 
         }
 
