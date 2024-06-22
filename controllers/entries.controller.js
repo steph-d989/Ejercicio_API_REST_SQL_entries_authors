@@ -95,6 +95,6 @@ const deleteEntry = async (req, res) => {
 module.exports = {
     getEntries,
     createEntry,
-    deleteEntry, //--> DELETE
-    updateEntry //--> PUT
+    deleteEntry,
+    updateEntry 
 }

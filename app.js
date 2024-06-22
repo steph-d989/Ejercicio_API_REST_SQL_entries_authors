@@ -1,6 +1,10 @@
 const express = require("express"); //llama al paquete express
 const app = express(); //inicializa servidor
 const port = 3000;
+const pg = require("pg");
+const config = require("dotenv")
+
+
 
 // Importar Middlewares
 const error404 = require("./middlewares/error404");
