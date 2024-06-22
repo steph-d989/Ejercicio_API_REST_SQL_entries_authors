@@ -14,7 +14,7 @@ const pool = new Pool({
   password: 'EtCCP71D3tH5P1LFbNchwddtKRka8LOi',
   database: 'baseprueba_ra9l',
   port: '5432',
-  ssl: false
+  //ssl: false
 });
 
   module.exports = pool;
