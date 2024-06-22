@@ -28,9 +28,9 @@ const db_queries_authors = {
     email=$3,
     image=$4
     WHERE email=$5;`,
-
+/* 
     deleteAuthor: `DELETE FROM authors
-    WHERE email=$1;`
+    WHERE title=$1;` */
 }
 
 module.exports = db_queries_authors;

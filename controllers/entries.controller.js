@@ -81,9 +81,20 @@ const updateEntry = async (req, res) => {
     }
 };
 
+const deleteEntry = async (req, res) => {
+    let entry;
+    try{
+        entry = await entries.queries.deleteEntry(req.query.email);
+        res.status(200).json({"exito": `Se ha borrado entry: "${req.query.email}"`})
+    }catch{
+        res.status(500).json({"error": "Error en la BBDD"})
+    }
+}
+
+
 module.exports = {
     getEntries,
     createEntry,
-    //deleteEntry, --> DELETE
+    deleteEntry, //--> DELETE
     updateEntry //--> PUT
 }

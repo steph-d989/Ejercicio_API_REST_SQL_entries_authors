@@ -38,7 +38,6 @@ const getAuthorsByEmail = async (email) => {
 }
 
 const createAuthors = async (authors) => {
-    console.log(authors);
     const { name, surname, email, image } = authors;
     let client, result;
     try {
@@ -86,13 +85,27 @@ const updateAuthors = async (author) => {
     old_title: "El titulo antiguo a cambiar"
 }*/
 // DELETE
+const deleteAuthors = async (email) =>{
+    let client, result;
+    try{
+        client = await pool.connect();
+        const data = await client.query(db_queries_authors, [email])
+        result=data
+    }catch(err){
+        console.log(err)
+        throw err;
+    }finally{
+        client.release();
+    }
+    return result
+}
 
 
 const authors = {
     getAllAuthors,
     getAuthorsByEmail,
     createAuthors,
-    //deleteEntry
+    deleteAuthors,
     updateAuthors
 }
 

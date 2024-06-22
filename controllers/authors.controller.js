@@ -95,11 +95,21 @@ const updateAuthors = async (req, res) => {
     }
 };
 
+const deleteAuthors = async (req, res) => {
+    let authors;
+    try{
+        authors = await authors.queries.deleteAuthors(req.query.email);
+        res.status(200).json({"exito": `Se ha borrado entry: "${req.query.email}"`})
+    }catch{
+        res.status(500).json({"error": "Error en la BBDD"})
+    }
+}
+
 
 module.exports = {
     getAuthors,
     getAuthorsByEmail,
     createAuthors,
-    //deleteAuthors, --> DELETE
+    deleteAuthors, //--> DELETE
     updateAuthors //--> PUT
 }
