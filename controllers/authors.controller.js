@@ -39,7 +39,7 @@ const getAuthorsByEmail = async (req, res) => {
     "surname": "El titulo antiguo a cambiar",
 }
  */
-// Crear entry por email
+// Crear author por email
 const createAuthors = async (req, res) => {
     const newAuthors = req.body; // {title,content,email,image}
     if (
@@ -63,17 +63,16 @@ const createAuthors = async (req, res) => {
 };
 
 // PUT http://localhost:3000/api/authors
-/*{
-    "title": "Sufriendo con backend",
-    "content": "El backend me llevara a la locura",
-    "date": "2024-06-17",
-    "category": "sucesos",
-    "name": "Stephani",
-    "surname": "Damiani",
-}*/
+/*const updatedAuthor =  { 
+     "name": "Steph",
+     "surname": "Damiani",
+     "email": "steph@thebridgeschool.es",
+     "image": "imagendesteph",
+     "old_email": "steph@thebridgeschool.es"
+// }*/
 
 const updateAuthors = async (req, res) => {
-    const modifiedAuthors = req.body; // {title,content,date,email,category,old_title}
+    const modifiedAuthors = req.body; // {name,surname,email,image,old_email}
     if (
         "name" in modifiedAuthors &&
         "surname" in modifiedAuthors &&

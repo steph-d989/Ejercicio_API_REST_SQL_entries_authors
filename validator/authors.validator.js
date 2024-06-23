@@ -1,6 +1,5 @@
 const {param, query, body} = require("express-validator");
 
-
 const validateCreateAuthor =  [
    body("title")
      .exists()
@@ -41,10 +40,13 @@ const validateCreateAuthor =  [
    ];
 
  const validateDeleteAuthor =  [
-   param('title').notEmpty().withMessage("Title should exist to delete a book")
+   param('title')
+        .notEmpty()
+        .withMessage("Title should exist to delete an author")
 ]
 
 module.exports = {
    validateCreateAuthor,
-   validateDeleteAuthor
+   validateDeleteAuthor,
+   
 }

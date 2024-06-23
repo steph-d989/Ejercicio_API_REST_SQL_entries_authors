@@ -7,7 +7,7 @@ const checkApiKey = require('../middlewares/auth_api_key');
 router.get('/', checkApiKey, entriesController.getEntries);
 router.post('/', checkApiKey, entriesController.createEntry);
 router.put('/', checkApiKey, entriesController.updateEntry);
-//router.delete('/', checkApiKey, entriesController.deleteEntry);
+router.delete('/', checkApiKey, entriesController.deleteEntry);
 
 module.exports = router;
 

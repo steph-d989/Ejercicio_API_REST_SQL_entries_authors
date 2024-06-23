@@ -8,7 +8,7 @@ router.get('/', checkApiKey, authorsController.getAuthors);
 router.get('/', checkApiKey, authorsController.getAuthorsByEmail);
 router.post('/', checkApiKey, authorsController.createAuthors);
 router.put('/', checkApiKey, authorsController.updateAuthors);
-//router.delete('/', checkApiKey, authorsController.deleteAuthors);
+router.delete('/', checkApiKey, authorsController.deleteAuthors);
 
 module.exports = router;
 

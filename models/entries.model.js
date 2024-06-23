@@ -84,12 +84,12 @@ const updateEntry = async (entry) => {
     old_title: "El titulo antiguo a cambiar"
 }*/
 // DELETE
-const deleteEntry = async (email) =>{
+const deleteEntry = async (title) =>{
     let client, result;
     try{
         client = await pool.connect();
-        const data = await client.query(db_queries_entries, [email])
-        result=data
+        const data = await client.query(db_queries_entries.deleteEntry, [title])
+        result=data.fields;
     }catch(err){
         console.log(err)
         throw err;
