@@ -2,7 +2,7 @@ const authors = require('../models/authors.model'); // Importar el modelo de la 
 
 // GET http://localhost:3000/api/authors?API_KEY=123abc --> ALL
 // GET http://localhost:3000/api/authors?API_KEY=123abc&email=hola@gmail.com --> por email
-const getAuthors = async (req, res) => {
+const getAllAuthors = async (req, res) => {
     let authorsData;
     try {
         if (req.query.email) {
@@ -106,7 +106,7 @@ const deleteAuthors = async (req, res) => {
 
 
 module.exports = {
-    getAuthors,
+    getAllAuthors,
     getAuthorsByEmail,
     createAuthors,
     deleteAuthors, //--> DELETE

@@ -11,14 +11,18 @@ app.use(morgan(':method :host :url :status :param[id] - :response-time ms :body'
 
 // Rutas
 const entriesRoutes = require("./routes/entries.routes")
-const authorsRoutes = require("./routes/authors.routes")
+const authorsRoutes = require("./routes/authors.routes");
+const checkApiKey = require("./middlewares/auth_api_key");
 
 app.use(express.json()); // Habilito recepción de JSON en servidor
 
 // sobre app se va a acrear dos rutas 
-app.get("/", (req, res) => {   
+/* app.get("/", (req, res) => {   
   res.send("Hello World!");
-});
+}); */
+
+app.get('/api/authors', checkApiKey, authorsRoutes)
+app.get('/api/entries', checkApiKey, entriesRoutes)
 
 // Rutas
 //API

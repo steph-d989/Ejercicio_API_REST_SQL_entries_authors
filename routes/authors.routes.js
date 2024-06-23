@@ -4,7 +4,7 @@ const authorsController = require("../controllers/authors.controller");
 const router = express.Router();
 const checkApiKey = require('../middlewares/auth_api_key');
 
-router.get('/', checkApiKey, authorsController.getAuthors);
+router.get('/', checkApiKey, authorsController.getAllAuthors);
 router.get('/', checkApiKey, authorsController.getAuthorsByEmail);
 router.post('/', checkApiKey, authorsController.createAuthors);
 router.put('/', checkApiKey, authorsController.updateAuthors);
