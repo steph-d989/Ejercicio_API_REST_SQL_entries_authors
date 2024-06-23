@@ -17,17 +17,14 @@ const checkApiKey = require("./middlewares/auth_api_key");
 app.use(express.json()); // Habilito recepción de JSON en servidor
 
 // sobre app se va a acrear dos rutas 
-/* app.get("/", (req, res) => {   
+app.get("/", (req, res) => {   
   res.send("Hello World!");
-}); */
-
-app.get('/api/authors', checkApiKey, authorsRoutes)
-app.get('/api/entries', checkApiKey, entriesRoutes)
+});
 
 // Rutas
 //API
-app.use('/api/authors',authorsRoutes)
-app.use('/api/entries',entriesRoutes);
+app.use('/api/authors', checkApiKey ,authorsRoutes)
+app.use('/api/entries', checkApiKey ,entriesRoutes);
 app.use(error404); //Middleware gestiona el 404
 
 
