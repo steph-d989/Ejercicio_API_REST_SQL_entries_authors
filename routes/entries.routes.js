@@ -3,11 +3,12 @@ const express = require('express');
 const entriesController = require("../controllers/entries.controller");
 const router = express.Router();
 const checkApiKey = require('../middlewares/auth_api_key');
+const { validateCreateEntries, validateGetEntries, validateDeleteEntry, validateUpdateEntry } = require("../validators/entries.validator");
 
-router.get('/', checkApiKey, entriesController.getEntries);
-router.post('/', checkApiKey, entriesController.createEntry);
-router.put('/', checkApiKey, entriesController.updateEntry);
-router.delete('/', checkApiKey, entriesController.deleteEntry);
+router.get('/', checkApiKey, validateGetEntries, entriesController.getEntries);
+router.post('/', checkApiKey, validateCreateEntries, entriesController.createEntry);
+router.put('/', checkApiKey, validateUpdateEntry, entriesController.updateEntry);
+router.delete('/', checkApiKey,validateDeleteEntry, entriesController.deleteEntry);
 
 module.exports = router;
 

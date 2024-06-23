@@ -1,4 +1,4 @@
-const { Pool } = require('pg');
+//const { Pool } = require('pg');
 const pool = require('../config/db_pgsql')
 const db_queries_authors = require('../queries/authors.queries.js');
 
@@ -59,7 +59,7 @@ const updateAuthors = async (author) => {
     let client, result;
     try {
         client = await pool.connect(); // Espera a abrir conexion
-        const data = await client.query(db_queries_authors.updateAuthor,[
+        const data = await client.query(db_queries_authors.updateAuthors,[
             name, 
             surname, 
             email, 
@@ -89,7 +89,7 @@ const deleteAuthors = async (email) =>{
     let client, result;
     try{
         client = await pool.connect();
-        const data = await client.query(db_queries_authors, [email])
+        const data = await client.query(db_queries_authors.deleteAuthor, [email])
         result=data.fields;
     }catch(err){
         console.log(err)

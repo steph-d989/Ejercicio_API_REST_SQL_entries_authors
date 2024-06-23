@@ -14,7 +14,9 @@ const entriesRoutes = require("./routes/entries.routes")
 const authorsRoutes = require("./routes/authors.routes");
 const checkApiKey = require("./middlewares/auth_api_key");
 
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); // Habilito recepción de JSON en servidor
+
 
 // sobre app se va a acrear dos rutas 
 app.get("/", (req, res) => {   

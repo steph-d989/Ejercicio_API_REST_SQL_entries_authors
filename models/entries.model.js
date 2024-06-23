@@ -1,6 +1,7 @@
-const { Pool } = require('pg');
-const pool = require('../config/db_pgsql') 
+//const { Pool } = require('pg');
 const db_queries_entries = require('../queries/entries.queries');
+const pool = require('../config/db_pgsql') 
+
 
 // GET
 const getEntriesByEmail = async (email) => {
@@ -89,7 +90,7 @@ const deleteEntry = async (title) =>{
     try{
         client = await pool.connect();
         const data = await client.query(db_queries_entries.deleteEntry, [title])
-        result=data.fields;
+        result=data.rowCount;
     }catch(err){
         console.log(err)
         throw err;
